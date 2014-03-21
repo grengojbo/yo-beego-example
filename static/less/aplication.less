@@ -1,0 +1,47 @@
+@import 'variables.less';
+@import 'mixins.less';
+
+/* global styles
+===========================*/
+body {
+  background: @body-bg; /* Для старых браузров */
+  background: linear-gradient(to top, @body-bg, @body-bg-gr);
+  // font-family: Lato;
+  // font-weight: 300;
+  // font-size: 16px;
+  // color: #555;
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+  padding-top: 62px;
+}
+a {
+  cursor: pointer;
+}
+header {
+  padding-top: 50px;
+}
+.img_left {
+   float: left !important;
+}
+.img_right {
+  float: right !important;
+}
+.jbo-pj {
+  text-align: justify;
+}
+/* Login or Register */
+
+/* Mobile */
+// @media (max-width:  @screen-xs-max) {
+//   .jbo-slider {
+//     margin-top: 0px;
+//   }
+// }
+// @media (min-width: @screen-sm-min) {
+//   .timeline-panel {
+//     min-height: 270px;
+//   }
+//   .timeline-panel:after {
+//     top: 84px;
+//   }
+// }

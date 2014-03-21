@@ -1,0 +1,8 @@
+{
+	"baseName": "myapp",
+	"goBin": "/usr/local/Cellar/go/1.2/libexec/bin",
+	"baseDir": "./",
+	"entities": [],
+	"resources": [],
+	"appPort": 8080
+}
