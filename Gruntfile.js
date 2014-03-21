@@ -37,7 +37,7 @@ module.exports = function (grunt) {
 			coffee: {
         // tasks: ['coffee:dist'],
         files: ['/static/js/{,*/}*.coffee']
-      }
+      },
       less: {
         tasks: ['less:dev', , 'autoprefixer'],
         files: ['/static/less/{,*/}*.less']
@@ -46,7 +46,7 @@ module.exports = function (grunt) {
 		connect: {
 			proxies: [
 				{
-					context: '/myapp',
+					context: '/',
 					host: 'localhost',
 					port: 8080,
 					https: false,

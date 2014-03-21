@@ -24,7 +24,7 @@ func (this *ExampleServiceController) Get() {
       sort = "-" + sort
     }
   } else {
-    sort = "ServiceId"
+    sort = "Id"
   }
   beego.Debug("API ExampleServiceController metod GET isLogin: ", this.isLogin)
   objectId := this.Ctx.Input.Params[":objectId"]
@@ -43,7 +43,7 @@ func (this *ExampleServiceController) Get() {
       }
     } else {
       // TODO: заменить function полчения списка записей
-      ob, cnt := models.GetPaysList(sort)
+      ob, cnt := models.GetExampleList(sort)
       this.Data["json"] = &map[string]interface{}{"count": cnt, "next": nil, "previous": nil, "results": &ob}
     }
   } else {

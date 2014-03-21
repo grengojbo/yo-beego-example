@@ -36,8 +36,7 @@ type baseController struct {
   i18n.Locale      // For i18n usage when process data and render template.
   isLogin          bool
   userId           int
-  user             models.UserNoDeny
-  // user             models.User
+  user             models.User
 }
 
 // Prepare implemented Prepare() method for baseController.
@@ -53,12 +52,11 @@ func (this *baseController) Prepare() {
   } else {
     this.userId, _ = strconv.Atoi(sId.(string))
   }
-  u, err := models.GetProfile(this.userId)
+  u, err := models.GetUser(this.userId)
   if err == nil {
     this.user = u
-    this.userId = u.User.Id
     this.isLogin = true
-    beego.Debug("is Login:", this.user.User.Username)
+    beego.Debug("is Login:", this.user.Username)
   }
   beego.Debug("Session User: ", this.userId)
   if djangoAuthModule == nil {
@@ -89,11 +87,12 @@ type ResponseInfo struct {
 }
 
 type MainController struct {
-	beego.Controller
+  // baseController
+  beego.Controller
 }
 
 func (this *MainController) Get() {
-	this.Data["Website"] = "beego.me"
-	this.Data["Email"] = "astaxie@gmail.com"
-	this.TplNames = "index.tpl"
+  this.Data["Website"] = "beego.me"
+  this.Data["Email"] = "astaxie@gmail.com"
+  this.TplNames = "index.tpl"
 }

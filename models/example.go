@@ -5,7 +5,7 @@ package models
 
 import (
 	"errors"
-	// "github.com/astaxie/beego"
+	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	// "github.com/astaxie/beego/validation"
 	// "strconv"
@@ -34,6 +34,16 @@ func GetExample(ObjectId int64) (object Example, err error) {
 	} else {
 		return object, nil
 	}
+}
+
+func GetExampleList(sort string) (objects []orm.Params, count int64) {
+	o := orm.NewOrm()
+	p := new(Example)
+	count, err := o.QueryTable(p).OrderBy(sort).Values(&objects)
+	if err == nil {
+		beego.Debug("GetExampleList Result count: ", count)
+	}
+	return objects, count
 }
 
 func init() {
