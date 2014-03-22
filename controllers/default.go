@@ -83,9 +83,6 @@ func (this *baseController) Prepare() {
   this.Data["Lang"] = this.Lang
 }
 
-type ResponseInfo struct {
-}
-
 type MainController struct {
   // baseController
   beego.Controller
